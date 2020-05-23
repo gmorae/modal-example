@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { FiX } from "react-icons/fi";
+
+import './style.css'
 
 function App() {
+
+  const abreModal = () => {
+    document.getElementById('modal').classList.add('mostrar')
+  }
+
+  const fecharModal = () => {
+    document.getElementById('modal').classList.remove('mostrar')
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1 onClick={abreModal}>Clique em mim</h1>
+
+      <div id="modal" className="modal-container">
+        <div className="modal">
+          <FiX color="000" size={18} onClick={() => fecharModal()} />
+          <div className="content">
+            <p>Olá eu sou modal</p>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
